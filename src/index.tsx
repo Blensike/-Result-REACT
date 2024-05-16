@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
+import "./index.scss";
 
 function App() {
   const [count, setCount] = React.useState(0);
@@ -14,3 +15,5 @@ function App() {
 }
 
 const root = createRoot(document.getElementById("app"));
+
+root.render(<App />);
