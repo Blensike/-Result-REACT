@@ -7,7 +7,18 @@ module.exports = merge(commonConfig, {
   mode: "production",
   devtool: "source-map",
   optimization: {
-    minimize:true,
+    minimize: true,
     minimizer: [new CssMinimizerWebpackPlugin(), new TerserPlugin()],
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          chunks: "all",
+          name: "vendor",
+          test: /node_modules/,
+        },
+      },
+    },
   },
 });
